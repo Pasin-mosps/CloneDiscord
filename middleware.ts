@@ -4,19 +4,11 @@ import { authMiddleware } from "@clerk/nextjs";
 // Please edit this to allow other routes to be public as needed.
 // See https://clerk.com/docs/references/nextjs/auth-middleware for more information about configuring your Middleware
 
-export default authMiddleware({});
+export default authMiddleware({
+  publicRoutes: ["/api/uploadthing"]
+});
  
 export const config = {
   matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };
 
-// export default authMiddleware({
-//     publicRoutes: ["/"], // กำหนดเส้นทางที่เป็นสาธารณะ
-//     ignoredRoutes: ["/((?!api|trpc))(_next.*|.+\.[\w]+$)", "/"], // กำหนดเส้นทางที่ไม่ต้องการให้ Clerk ทำ Authentication
-//   });
-  
-//   export const config = {
-//     api: {
-//       bodyParser: false,
-//     },
-//   };
