@@ -36,7 +36,7 @@ const formSchema = z.object({
     }),
     imageUrl: z.string().min(1, {
         message: "Server image is required"
-    })
+    }),
 })
 
 export const CreateServerModal = () => {
@@ -57,10 +57,11 @@ export const CreateServerModal = () => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            await axios.post("api/servers",values)
+            await axios.post("/api/servers",values)
 
             form.reset()
             router.refresh()
+            onClose()
         } catch (error) {
             console.log(error)
         }

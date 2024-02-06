@@ -53,14 +53,14 @@ export const InitialModal = () => {
         defaultValues:{
             name:"",
             imageUrl:"",
-        }
+        },
     })
 
     const isLoading = form.formState.isSubmitting
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            await axios.post("api/servers",values)
+            await axios.post("/api/servers",values)
 
             form.reset()
             router.refresh()
