@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { CreateServerModal } from "../modals/create-server-modal"
+import { CreateChannelModal } from "../modals/create-channel-modal"
 
 export const ModalProvider = () => {
 
@@ -18,6 +19,7 @@ export const ModalProvider = () => {
     return (
         <>
         <CreateServerModal />
+        <CreateChannelModal />
         </>
     )
 }

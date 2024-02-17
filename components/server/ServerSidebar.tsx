@@ -3,6 +3,7 @@ import { db } from "@/lib/db"
 import { ChannelType } from "@prisma/client"
 import { redirect } from "next/navigation"
 import { ServerHeader } from "./Server-Header"
+import { Separator } from "../ui/separator"
 
 interface ServerSidebarProps {
     serverId: string
@@ -56,6 +57,8 @@ export const ServerSidebar = async({
             server={server} 
             role={role}
             />
+            <Separator className="bg-zinc-200 dark:bg-zinc-700 rounded-md my-2" />
+            {!!textChannels?. length}
         </div>
     )
 }
